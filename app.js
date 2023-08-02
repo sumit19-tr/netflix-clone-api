@@ -61,6 +61,13 @@ app.get('/video1/:filename', function(req, res){
 
 })
 
+app.get('/api/pricing',(req,res) => {
+    db.collection('coinPrizingData').find().toArray((err,data) => {
+        if(err) throw err;
+        res.send(data)
+    })
+})
+
 //list of movies
 app.get('/movies',(req,res) => {
     db.collection('Movies').find().toArray((err,data) => {
