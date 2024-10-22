@@ -79,7 +79,6 @@ app.get('/movies',(req,res) => {
 // details of a movie wrt movie id
 app.get('/movies/:id',(req,res) => {
     let id = Number(req.params.id);
-
     db.collection('Movies').find({"id":id}).toArray((err,data) => {
         if(err) throw err;
         res.send(data)
@@ -89,7 +88,6 @@ app.get('/movies/:id',(req,res) => {
 // details of a movie wrt movie_typeid
 app.get('/moviesCategory/:movie_typeid',(req,res) => {
     let movie_typeid = Number(req.params.movie_typeid);
-
     db.collection('Movies').find({"movie_typeid":movie_typeid}).toArray((err,data) => {
         if(err) throw err;
         res.send(data)
